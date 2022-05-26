@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="en"><head>
+    <script src="p5.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+
+    <script src="TileMap.js"></script>
+
+    <script src="Controls/PlayerControls.js"></script>
+    <script src="Controls/MouseControls.js"></script>
+
+    <script src="uiElements/PreloadUI.js"></script>
+
+    <script src="Blocks/Block.js"></script>
+    <script src="Blocks/EmptyBlock.js"></script>
+    <script src="Blocks/InvisBlock.js"></script>
+    <script src="Blocks/PreloadBlocks.js"></script>
+
+    <script src="Game.js"></script>
+    <script src="GameStates/StartingScreen.js"></script>
+    <script src="GameStates/MenuScreen.js"></script>
+    <script src="GameStates/GameOver.js"></script>
+    <script src="GameStates/Continue.js"></script>
+    <script src="GameStates/Level1.js"></script>
+    <script src="GameStates/Level2.js"></script>
+    <script src="GameStates/End.js"></script>
+
+    <script src="Characters/Enemies/Enemy.js"></script>
+    <script src="Characters/Enemies/Reaper.js"></script>
+    <script src="Characters/Enemies/Wisp.js"></script>
+    <script src="Characters/Enemies/Worm.js"></script>
+    <script src="Characters/Enemies/WormBall.js"></script>
+    <script src="Characters/Enemies/PreloadEnemies.js"></script>
+
+    <script src="Characters/Player.js"></script>
+    <script src="Characters/PreloadPlayer.js"></script>
+
+    <script src="PowerUps/PowerUp.js"></script>
+    <script src="PowerUps/ExtraHeart.js"></script>
+    <script src="PowerUps/Heal.js"></script>
+
+    <!--   UI Images   -->
+    <script src="uiElements/Hearts/HeartEmpty.png"></script>
+    <script src="uiElements/Hearts/HeartHalf.png"></script>
+    <script src="uiElements/Hearts/HeartFull.png"></script>
+
+    <!--   PowerUps   -->
+    <script src="uiElements/PowerUps/cranberry.png"></script>
+
+    <!--   ANIMATIONS FOR ENEMIES   -->
+    <!--   Skeleton:   -->
+    <script src="zImages/Enemies/Skeleton/Walk/SKELE_WALK_1.png"></script>
+    <script src="zImages/Enemies/Skeleton/Walk/SKELE_WALK_2.png"></script>
+    <script src="zImages/Enemies/Skeleton/Walk/SKELE_WALK_3.png"></script>
+    <script src="zImages/Enemies/Skeleton/Walk/SKELE_WALK_4.png"></script>
+
+    <!--   Worm:   -->
+    <script src="zImages/Enemies/Worm/Walk/WormWalk1.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk2.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk3.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk4.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk5.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk6.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk7.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk8.png"></script>
+    <script src="zImages/Enemies/Worm/Walk/WormWalk9.png"></script>
+
+    <!--   Reaper:   -->
+    <script src="zImages/Enemies/Reaper/Idle/idle_0000_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Idle/idle_0001_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Idle/idle_0002_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Idle/idle_0003_1.png"></script>
+
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0000_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0001_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0002_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0003_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0004_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0005_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0006_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0007_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0008_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0009_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0010_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0011_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0012_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0013_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0014_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0015_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0016_1.png"></script>
+    <script src="zImages/Enemies/Reaper/Die/DeathDie_0017_1.png"></script>
+
+    <!--   Wisp:   -->
+    <script src="zImages/Enemies/Wisp/Die/WispDie_0000_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispDie_0001_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispDie_0002_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispDie_0003_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispDie_0004_1.png"></script>
+
+    <script src="zImages/Enemies/Wisp/Die/WispIdle_0000_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispIdle_0001_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispIdle_0002_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispIdle_0003_1.png"></script>
+
+    <script src="zImages/Enemies/Wisp/Die/WispAppear_0000_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispAppear_0001_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispAppear_0002_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispAppear_0003_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispAppear_0004_1.png"></script>
+    <script src="zImages/Enemies/Wisp/Die/WispAppear_0005_1.png"></script>
+
+    <!-- ANIMATIONS FOR PLAYER -->
+    <script src="zImages/Player/Walk/PLAYER_WALK_1.png"></script>
+    <script src="zImages/Player/Walk/PLAYER_WALK_2.png"></script>
+    <script src="zImages/Player/Walk/PLAYER_WALK_3.png"></script>
+    <script src="zImages/Player/Walk/PLAYER_WALK_4.png"></script>
+    <script src="zImages/Player/Walk/PLAYER_WALK_5.png"></script>
+    <script src="zImages/Player/Walk/PLAYER_WALK_6.png"></script>
+    <script src="zImages/Player/Walk/PLAYER_WALK_7.png"></script>
+    <script src="zImages/Player/Walk/PLAYER_WALK_8.png"></script>
+
+    <script src="zImages/Player/Idle/PLAYER_IDLE_1.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_2.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_3.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_4.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_5.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_6.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_7.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_8.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_9.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_10.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_11.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_12.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_13.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_14.png"></script>
+    <script src="zImages/Player/Idle/PLAYER_IDLE_15.png"></script>
+
+    <script src="zImages/Player/Jump/PLAYER_JUMP_1.png"></script>
+    <script src="zImages/Player/Jump/PLAYER_JUMP_2.png"></script>
+    <script src="zImages/Player/Jump/PLAYER_JUMP_3.png"></script>
+    <script src="zImages/Player/Jump/PLAYER_JUMP_4.png"></script>
+    <script src="zImages/Player/Jump/PLAYER_JUMP_5.png"></script>
+
+    <script src="zImages/Player/Fall/PLAYER_FALL_1.png"></script>
+
+    <script src="zImages/Player/Attack/PLAYER_ATTK_1.png"></script>
+    <script src="zImages/Player/Attack/PLAYER_ATTK_2.png"></script>
+    <script src="zImages/Player/Attack/PLAYER_ATTK_3.png"></script>
+    <script src="zImages/Player/Attack/PLAYER_ATTK_4.png"></script>
+    <script src="zImages/Player/Attack/PLAYER_ATTK_5.png"></script>
+
+    <!--   Blocks   -->
+    <script src="zImages/Block/TopMiddle.png"></script>
+    <script src="zImages/Block/TopLeft.png"></script>
+    <script src="zImages/Block/TopRight.png"></script>
+    <script src="zImages/Block/TrueMiddle.png"></script>
+    <script src="zImages/Block/MiddleLeft.png"></script>
+    <script src="zImages/Block/MiddleRight.png"></script>
+    <script src="zImages/Block/Bottomleft.png"></script>
+    <script src="zImages/Block/BottomMiddle.png"></script>
+    <script src="zImages/Block/BottomRight.png"></script>
+    <script src="zImages/Block/HLine.png"></script>
+    <script src="zImages/Block/LeftHLine.png"></script>
+    <script src="zImages/Block/RightHLine.png"></script>
+    <script src="zImages/Block/VLine.png"></script>
+    <script src="zImages/Block/TopVLine.png"></script>
+    <script src="zImages/Block/BottomVLine.png"></script>
+    <script src="zImages/Block/Single.png"></script>
+
+    <!--   Background   -->
+    <script src="zImages/Background/Background.png"></script>
+  
+
+</body></html>
